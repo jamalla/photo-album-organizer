@@ -2,6 +2,10 @@
 
 A monorepo app for organizing photo albums with a Vite frontend and an Express + SQLite backend.
 
+## Built With Help From
+
+This project was built with help from **spcify** and **GitHub Copilot**.
+
 ## Project Structure
 
 - `frontend/` — UI built with Vite
