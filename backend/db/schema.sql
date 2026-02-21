@@ -1,0 +1,31 @@
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE IF NOT EXISTS photos (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  file_path TEXT NOT NULL UNIQUE,
+  file_name TEXT NOT NULL,
+  captured_at TEXT,
+  fallback_at TEXT NOT NULL,
+  album_key TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS albums (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  album_key TEXT NOT NULL UNIQUE,
+  title TEXT NOT NULL,
+  position INTEGER NOT NULL DEFAULT 0,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS album_order (
+  album_key TEXT NOT NULL UNIQUE,
+  position INTEGER NOT NULL,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (album_key) REFERENCES albums(album_key) ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS idx_photos_album_key ON photos(album_key);
+CREATE INDEX IF NOT EXISTS idx_album_order_position ON album_order(position);

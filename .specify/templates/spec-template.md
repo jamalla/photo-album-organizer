@@ -95,6 +95,14 @@
 - **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
 - **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
 
+### Non-Functional Requirements *(mandatory)*
+
+- **NFR-001 Code Quality**: Changes MUST satisfy repository linting, formatting, and static analysis checks in CI.
+- **NFR-002 Testing**: Behavior changes MUST include automated tests at the appropriate level; bug fixes MUST include regression tests.
+- **NFR-003 UX Consistency**: User-facing changes MUST follow established design-system patterns and cover loading/success/empty/error states.
+- **NFR-004 Accessibility**: User-facing changes MUST preserve or improve keyboard accessibility, semantic labels, and readable contrast.
+- **NFR-005 Performance**: Feature MUST define measurable performance budgets and the method used to validate them.
+
 ### Key Entities *(include if feature involves data)*
 
 - **[Entity 1]**: [What it represents, key attributes without implementation]
@@ -113,3 +121,6 @@
 - **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
 - **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
 - **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+- **SC-005**: [Quality metric, e.g., "100% of changed modules pass linting/static checks with zero new warnings"]
+- **SC-006**: [Testing metric, e.g., "All new/changed behavior has passing automated tests, including regression coverage for fixes"]
+- **SC-007**: [Performance metric, e.g., "p95 latency and memory use remain within declared budget under expected load"]
